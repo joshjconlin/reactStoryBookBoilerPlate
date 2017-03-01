@@ -1,0 +1,18 @@
+node_modules
+npm-debug.log
+build
+coverage
+
+# Exclude compiled files
+/lib
+
+# Exclude IDE project folders
+.idea/workspace.xml
+.idea/watcherTasks.xml.xml
+
+*.sublime-project
+*.sublime-workspace
+jsconfig.json
+
+# OS files
+.DS_STORE

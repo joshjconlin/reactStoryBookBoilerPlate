@@ -1,0 +1,30 @@
+import React, { PropTypes } from 'react';
+{{#if hasRenderer}}
+import * as Render from './render';
+{{/if}}
+{{#if wantsCSS}}
+import getStyles from './styles';
+{{/if}}
+
+/* eslint-disable react/no-unused-prop-types */
+function {{ properCase name }}(props, { theme }) {
+  {{#if wantsCSS}}
+  const styles = getStyles(props, theme);
+  {{/if}}
+  return (
+    {{#if hasRenderer}}
+    <Render.{{ properCase name }}{{#if wantsCSS}} style={styles.root}{{/if}}/>
+    {{else}}
+    <div />
+    {{/if}}
+  );
+}
+
+{{ properCase name }}.propTypes = {
+    style: PropTypes.oneOfType([PropTypes.object, PropTypes.node, PropTypes.array])
+};
+{{ properCase name }}.contextTypes = {
+    theme: PropTypes.object,
+};
+
+export default {{ properCase name }};
